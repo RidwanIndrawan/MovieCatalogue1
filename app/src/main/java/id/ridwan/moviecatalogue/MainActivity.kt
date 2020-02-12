@@ -1,17 +1,21 @@
 package id.ridwan.moviecatalogue
 
-import android.content.Intent
-import android.content.res.TypedArray
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.widget.AdapterView
-import android.widget.Toast
-import id.ridwan.moviecatalogue.DetailMovie.Companion.KEY
 //import id.ridwan.moviecatalogue.DetailMovie.Companion.KEY_DESC
 //import id.ridwan.moviecatalogue.DetailMovie.Companion.KEY_NAME
 //import id.ridwan.moviecatalogue.DetailMovie.Companion.KEY_PHOTO
+
+import android.content.Intent
+import android.content.res.TypedArray
+import android.os.Bundle
+import android.widget.AdapterView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.microsoft.appcenter.AppCenter
+import com.microsoft.appcenter.analytics.Analytics
+import com.microsoft.appcenter.crashes.Crashes
+import id.ridwan.moviecatalogue.DetailMovie.Companion.KEY
 import kotlinx.android.synthetic.main.activity_main.*
-import java.util.*
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -53,6 +57,10 @@ class MainActivity : AppCompatActivity() {
 //            }
 
 //            intent.putParcelableArrayListExtra(KEY,moviie)
+            AppCenter.start(
+                application, "b31d16bd-5f89-425b-ac8c-117141244abf",
+                Analytics::class.java, Crashes::class.java
+            )
         }
     }
 
